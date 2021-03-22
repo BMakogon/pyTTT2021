@@ -14,7 +14,10 @@ def print_board():
 
 # Inserts a move at a given row & column
 def make_move(row, col, symbol):
-  board[row][col] = symbol
+  if not space_taken(row, col):
+    board[row][col] = symbol
+  else:
+    raise Exception('Invalid Move - Space Currently Taken')
 
 # Returns true when the game is over 
 # Note: Just a stub. Doesn't work yet
@@ -52,6 +55,14 @@ d888888b  .d88b.  d88888b
    88    `8b  d8' 88.     
    YP     `Y88P'  Y88888P 
   ''')
+
+# returns true if space at index row, col has been taken
+# returns false otherwise
+def space_taken(row, col):
+  if board[row][col] != '_':
+    return True
+  else:
+    return False
 
 while not is_game_over():
   welcome_screen()
