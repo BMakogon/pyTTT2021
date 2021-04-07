@@ -22,6 +22,7 @@ def make_move(row, col, symbol):
     c_choice = int(input('Which row would you like to choose? '))
     make_move(r_choice, c_choice, symbol)
 
+
 # Returns true when the game is over 
 # Note: Just a stub. Doesn't work yet
 def is_game_over():
@@ -76,7 +77,14 @@ while not is_game_over():
 
   # Get the user input
   row_choice = int(input('Which row would you like to choose? '))
-  col_choice = int(input('Which row would you like to choose? '))
+  while (row_choice < 0 or row_choice > 2):
+    print("Please choose a number between 0 and 2")
+    row_choice = int(input('Which row would you like to choose?')) 
+    
+  col_choice = int(input('Which column would you like to choose? '))
+  while (col_choice < 0 or col_choice > 2):
+    print("Please choose a number between 0 and 2")
+    col_choice = int(input('Which column would you like to choose? '))
 
   # Put their move on the board
   make_move(row_choice, col_choice, symbols[turn])
