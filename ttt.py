@@ -17,7 +17,11 @@ def make_move(row, col, symbol):
   if not space_taken(row, col):
     board[row][col] = symbol
   else:
-    raise Exception('Invalid Move - Space Currently Taken')
+    print('Space Already Taken - Try Again')
+    r_choice = int(input('Which row would you like to choose? '))
+    c_choice = int(input('Which row would you like to choose? '))
+    make_move(r_choice, c_choice, symbol)
+
 
 # Returns true when the game is over 
 # Note: Just a stub. Doesn't work yet
