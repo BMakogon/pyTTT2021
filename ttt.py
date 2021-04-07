@@ -67,9 +67,9 @@ def space_taken(row, col):
     return True
   else:
     return False
-
+welcome_screen()
 while not is_game_over():
-  welcome_screen()
+  
 
   # Print the board and whose turn it is
   print_board()
